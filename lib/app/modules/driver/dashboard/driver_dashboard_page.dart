@@ -387,12 +387,13 @@ class _HomeTab extends StatelessWidget {
           const SizedBox(height: 12),
           _ClockHistoryNavigationCard(),
           const SizedBox(height: 32),
-          _SectionHeading(
-            label: SKeys.recentActivities.tr,
-            subtitle: 'Your latest actions',
-          ),
-          const SizedBox(height: 16),
-          _RecentActivityPanel(),
+          // Recent Activity - Commented out for now
+          // _SectionHeading(
+          //   label: SKeys.recentActivities.tr,
+          //   subtitle: 'Your latest actions',
+          // ),
+          // const SizedBox(height: 16),
+          // _RecentActivityPanel(),
           const SizedBox(height: 100),
         ],
       ),
