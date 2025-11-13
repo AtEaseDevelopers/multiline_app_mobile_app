@@ -1,0 +1,33 @@
+class AppRoutes {
+  static const splash = '/';
+  static const roleSelection = '/role-selection';
+  static const login = '/login';
+  static const driverDashboard = '/driver/dashboard';
+  static const supervisorDashboard = '/supervisor/dashboard';
+  static const clockIn = '/driver/clock-in';
+  static const clockOut = '/driver/clock-out';
+  static const urgentClockOut = '/driver/urgent-clock-out';
+  static const clockHistory = '/driver/clock-history';
+  static const inspection = '/driver/inspection';
+  static const checklist = '/driver/checklist';
+  static const incident = '/driver/incident';
+  static const driverReports = '/driver/reports';
+  static const reports = '/reports'; // Reports list page
+  static const reportDetail = '/reports/detail'; // Report viewer page
+  static const profile = '/driver/profile';
+  static const history = '/history';
+  static const historyIncidentDetail = '/history/incident-detail';
+  static const historyInspectionDetail = '/history/inspection-detail';
+  static const historyChecklistDetail = '/history/checklist-detail';
+  static const supervisorHistory = '/supervisor/history';
+  static const review = '/supervisor/review';
+  static const reviewDetail = '/supervisor/review/detail';
+  static const inspectionDetail = '/supervisor/inspection/detail';
+  static const checklistDetail = '/supervisor/checklist/detail';
+  static const supervisorTeam = '/supervisor/team';
+  static const supervisorReports = '/supervisor/reports';
+  static const supervisorMore = '/supervisor/more';
+  static const notifications = '/notifications';
+  static const settings = '/settings';
+  static const appLock = '/app-lock';
+}

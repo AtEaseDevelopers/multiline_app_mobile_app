@@ -1,0 +1,622 @@
+{
+	"info": {
+		"_postman_id": "f7eef97e-9aba-46a4-9bb0-5a7cd97cac80",
+		"name": "Multiline",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9311413"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "rafi@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{APP_URL}}login",
+					"host": [
+						"{{APP_URL}}login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Lorries",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{ACCESS_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{APP_URL}}get-lorries",
+					"host": [
+						"{{APP_URL}}get-lorries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Clock In",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{ACCESS_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "vehicle_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "datetime",
+							"value": "2025-10-02 02:28:43",
+							"type": "text"
+						},
+						{
+							"key": "meter_reading",
+							"type": "file",
+							"src": "/C:/Users/sayto/Downloads/f39b639712f906433a9d4947f46faab146111cbd.jpg"
+						},
+						{
+							"key": "reading_picture",
+							"type": "file",
+							"src": "/C:/Users/sayto/Downloads/Screenshot_1.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{APP_URL}}clock-in",
+					"host": [
+						"{{APP_URL}}clock-in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Clock Out",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{ACCESS_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "vehicle_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "datetime",
+							"value": "2025-10-02 02:28:43",
+							"type": "text"
+						},
+						{
+							"key": "meter_reading",
+							"type": "file",
+							"src": "/C:/Users/sayto/Downloads/f39b639712f906433a9d4947f46faab146111cbd.jpg"
+						},
+						{
+							"key": "reading_picture",
+							"type": "file",
+							"src": "/C:/Users/sayto/Downloads/Screenshot_1.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{APP_URL}}clock-out",
+					"host": [
+						"{{APP_URL}}clock-out"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "supervisor Dashboard",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{ACCESS_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{APP_URL}}supervisor/dashboard",
+					"host": [
+						"{{APP_URL}}supervisor"
+					],
+					"path": [
+						"dashboard"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Inspection Vehicle Check",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{ACCESS_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{APP_URL}}inspection-vehicle-check",
+					"host": [
+						"{{APP_URL}}inspection-vehicle-check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Incident Submit",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{ACCESS_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "incident_type_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "note",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "photos",
+							"description": "an array of multiple photos",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "{{APP_URL}}incident-report-submit",
+					"host": [
+						"{{APP_URL}}incident-report-submit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Daily Checklist",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{ACCESS_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{APP_URL}}daily-checklist",
+					"host": [
+						"{{APP_URL}}daily-checklist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "driver dashbaord",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{ACCESS_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{APP_URL}}driver/dashboard",
+					"host": [
+						"{{APP_URL}}driver"
+					],
+					"path": [
+						"dashboard"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "inspection submit",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{ACCESS_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user_id\": 4,\r\n  \"vehicle_id\": 2,\r\n  \"inspection_template_id\": 2,\r\n  \"responses\": [\r\n    {\r\n      \"item_id\": 7,\r\n      \"answer\": \"Yes\",\r\n      \"photo\": null\r\n    },\r\n    {\r\n      \"item_id\": 6,\r\n      \"answer\": \"Good\",\r\n      \"photo\": null\r\n    },\r\n    {\r\n      \"item_id\": 8,\r\n      \"answer\": \"Good\",\r\n      \"photo\": null\r\n    }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{APP_URL}}inspection-vehicle-check-submit",
+					"host": [
+						"{{APP_URL}}inspection-vehicle-check-submit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get details of inspection",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{ACCESS_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{APP_URL}}inspection-details/2",
+					"host": [
+						"{{APP_URL}}inspection-details"
+					],
+					"path": [
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "daily check list submit",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{ACCESS_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user_id\": 4,\r\n  \"vehicle_id\": 2,\r\n  \"checklist_template_id\": 6,\r\n  \"responses\": [\r\n    {\r\n      \"checklist_question_id\": 28,\r\n      \"answer\": \"Yes\",\r\n      \"remarks\": null\r\n    },\r\n    {\r\n      \"checklist_question_id\": 27,\r\n      \"answer\": \"Yes\",\r\n      \"remarks\": null\r\n    },\r\n    {\r\n      \"checklist_question_id\": 26,\r\n      \"answer\": \"No\",\r\n      \"remarks\": null\r\n    }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{APP_URL}}daily-checklist-submit",
+					"host": [
+						"{{APP_URL}}daily-checklist-submit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "checklist-details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{ACCESS_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{APP_URL}}checklist-details/1",
+					"host": [
+						"{{APP_URL}}checklist-details"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "approve list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{ACCESS_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "checklist",
+							"description": "checklist, inspection_list",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "1",
+							"description": "list id",
+							"type": "text"
+						},
+						{
+							"key": "remarks",
+							"value": "Testing",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{APP_URL}}approve-list",
+					"host": [
+						"{{APP_URL}}approve-list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reject list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{ACCESS_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "inspection_list",
+							"description": "inspection_list, checklist",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "remarks",
+							"value": "Testing",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{APP_URL}}reject-list",
+					"host": [
+						"{{APP_URL}}reject-list"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "APP_URL",
+			"value": ""
+		},
+		{
+			"key": "ACCESS_TOKEN",
+			"value": ""
+		}
+	]
+}
