@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/theme/app_colors.dart';
+import '../../core/values/app_strings.dart';
 import '../../data/services/app_lock_service.dart';
 import '../../data/services/biometric_service.dart';
 import '../../data/services/storage_service.dart';
@@ -52,8 +53,8 @@ class _SettingsPageState extends State<SettingsPage> {
           });
 
           Get.snackbar(
-            'App Lock Enabled',
-            'Your app is now protected with device lock',
+            SKeys.appLockEnabled.tr,
+            SKeys.appNowProtected.tr,
             snackPosition: SnackPosition.BOTTOM,
             backgroundColor: Colors.green,
             colorText: Colors.white,
@@ -63,8 +64,8 @@ class _SettingsPageState extends State<SettingsPage> {
           );
         } else {
           Get.snackbar(
-            'Authentication Failed',
-            'Please try again',
+            SKeys.authenticationFailed.tr,
+            SKeys.pleaseTryAgain.tr,
             snackPosition: SnackPosition.BOTTOM,
             backgroundColor: Colors.red,
             colorText: Colors.white,
@@ -74,8 +75,8 @@ class _SettingsPageState extends State<SettingsPage> {
         }
       } catch (e) {
         Get.snackbar(
-          'Error',
-          'Could not enable app lock: ${e.toString().replaceAll('Exception: ', '')}',
+          SKeys.error.tr,
+          '${SKeys.couldNotEnableAppLock.tr}: ${e.toString().replaceAll('Exception: ', '')}',
           snackPosition: SnackPosition.BOTTOM,
           backgroundColor: Colors.orange,
           colorText: Colors.white,
@@ -91,11 +92,11 @@ class _SettingsPageState extends State<SettingsPage> {
             children: [
               Icon(Icons.lock_open, color: Colors.orange[700]),
               const SizedBox(width: 12),
-              const Text('Disable App Lock?'),
+              Text(SKeys.disableAppLock.tr),
             ],
           ),
-          content: const Text(
-            'Your app will no longer require authentication when opening.',
+          content: Text(
+            SKeys.appNoLongerRequireAuth.tr,
             style: TextStyle(fontSize: 15),
           ),
           shape: RoundedRectangleBorder(
@@ -104,7 +105,7 @@ class _SettingsPageState extends State<SettingsPage> {
           actions: [
             TextButton(
               onPressed: () => Get.back(result: false),
-              child: const Text('Cancel'),
+              child: Text(SKeys.cancel.tr),
             ),
             ElevatedButton(
               onPressed: () => Get.back(result: true),
@@ -112,7 +113,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 backgroundColor: Colors.orange,
                 foregroundColor: Colors.white,
               ),
-              child: const Text('Disable'),
+              child: Text(SKeys.disable.tr),
             ),
           ],
         ),
@@ -125,8 +126,8 @@ class _SettingsPageState extends State<SettingsPage> {
         });
 
         Get.snackbar(
-          'App Lock Disabled',
-          'Your app is no longer protected',
+          SKeys.appLockDisabled.tr,
+          SKeys.appNoLongerProtected.tr,
           snackPosition: SnackPosition.BOTTOM,
           backgroundColor: Colors.grey[700]!,
           colorText: Colors.white,
@@ -146,11 +147,11 @@ class _SettingsPageState extends State<SettingsPage> {
             children: [
               Icon(Icons.warning_amber, color: Colors.orange[700]),
               const SizedBox(width: 12),
-              const Text('Disable Remember Me?'),
+              Text(SKeys.disableRememberMe.tr),
             ],
           ),
-          content: const Text(
-            'You will need to login again next time you open the app.',
+          content: Text(
+            SKeys.willLogoutNextTime.tr,
             style: TextStyle(fontSize: 15),
           ),
           shape: RoundedRectangleBorder(
@@ -159,7 +160,7 @@ class _SettingsPageState extends State<SettingsPage> {
           actions: [
             TextButton(
               onPressed: () => Get.back(result: false),
-              child: const Text('Cancel'),
+              child: Text(SKeys.cancel.tr),
             ),
             ElevatedButton(
               onPressed: () => Get.back(result: true),
@@ -167,7 +168,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 backgroundColor: Colors.orange,
                 foregroundColor: Colors.white,
               ),
-              child: const Text('Disable'),
+              child: Text(SKeys.disable.tr),
             ),
           ],
         ),
@@ -180,8 +181,8 @@ class _SettingsPageState extends State<SettingsPage> {
         });
 
         Get.snackbar(
-          'Remember Me Disabled',
-          'You will need to login next time',
+          SKeys.rememberMeDisabled.tr,
+          SKeys.willRequireLoginNextTime.tr,
           snackPosition: SnackPosition.BOTTOM,
           backgroundColor: Colors.grey[700]!,
           colorText: Colors.white,
@@ -201,11 +202,11 @@ class _SettingsPageState extends State<SettingsPage> {
             children: [
               Icon(Icons.warning_amber, color: Colors.orange[700]),
               const SizedBox(width: 12),
-              const Text('Disable Quick Login?'),
+              Text(SKeys.disableQuickLogin.tr),
             ],
           ),
-          content: const Text(
-            'You will need to enter your password to login next time.',
+          content: Text(
+            SKeys.willRequirePasswordNextTime.tr,
             style: TextStyle(fontSize: 15),
           ),
           shape: RoundedRectangleBorder(
@@ -214,7 +215,7 @@ class _SettingsPageState extends State<SettingsPage> {
           actions: [
             TextButton(
               onPressed: () => Get.back(result: false),
-              child: const Text('Cancel'),
+              child: Text(SKeys.cancel.tr),
             ),
             ElevatedButton(
               onPressed: () => Get.back(result: true),
@@ -222,7 +223,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 backgroundColor: Colors.orange,
                 foregroundColor: Colors.white,
               ),
-              child: const Text('Disable'),
+              child: Text(SKeys.disable.tr),
             ),
           ],
         ),
@@ -235,8 +236,8 @@ class _SettingsPageState extends State<SettingsPage> {
         });
 
         Get.snackbar(
-          'Quick Login Disabled',
-          'You will need to enter password next time',
+          SKeys.quickLoginDisabled.tr,
+          SKeys.willRequirePasswordLogin.tr,
           snackPosition: SnackPosition.BOTTOM,
           backgroundColor: Colors.grey[700]!,
           colorText: Colors.white,
@@ -254,7 +255,7 @@ class _SettingsPageState extends State<SettingsPage> {
     return Scaffold(
       backgroundColor: AppColors.bg,
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: Text(SKeys.settings.tr),
         backgroundColor: AppColors.brandBlue,
         elevation: 0,
         centerTitle: true,
@@ -270,7 +271,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
                   // Security Section Title
                   Text(
-                    'Security & Privacy',
+                    SKeys.securityPrivacy.tr,
                     style: theme.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.w700,
                       color: AppColors.textPrimary,
@@ -281,10 +282,10 @@ class _SettingsPageState extends State<SettingsPage> {
                   // App Lock Setting
                   _ModernSettingCard(
                     icon: Icons.lock,
-                    title: 'App Lock',
+                    title: SKeys.appLock.tr,
                     subtitle: _isAppLockEnabled
-                        ? 'Enabled - App requires unlock'
-                        : 'Disabled - No protection',
+                        ? SKeys.enabledAppRequiresUnlock.tr
+                        : SKeys.disabledNoProtection.tr,
                     isEnabled: _isAppLockEnabled,
                     onChanged: _toggleAppLock,
                     activeColor: Colors.green,
@@ -294,10 +295,10 @@ class _SettingsPageState extends State<SettingsPage> {
                   // Quick Login Setting
                   _ModernSettingCard(
                     icon: Icons.fingerprint,
-                    title: 'Quick Login',
+                    title: SKeys.quickLogin.tr,
                     subtitle: _isQuickLoginEnabled
-                        ? 'Use device lock to login'
-                        : 'Configure during login',
+                        ? SKeys.useDeviceLockToLogin.tr
+                        : SKeys.configureDuringLogin.tr,
                     isEnabled: _isQuickLoginEnabled,
                     onChanged: _isQuickLoginEnabled ? _toggleQuickLogin : null,
                     activeColor: Colors.blue,
@@ -308,10 +309,10 @@ class _SettingsPageState extends State<SettingsPage> {
                   // Remember Me Setting
                   _ModernSettingCard(
                     icon: Icons.bookmark,
-                    title: 'Remember Me',
+                    title: SKeys.rememberMe.tr,
                     subtitle: _isRememberMeEnabled
-                        ? 'Stay logged in'
-                        : 'Configure during login',
+                        ? SKeys.stayLoggedIn.tr
+                        : SKeys.configureDuringLogin.tr,
                     isEnabled: _isRememberMeEnabled,
                     onChanged: _isRememberMeEnabled ? _toggleRememberMe : null,
                     activeColor: Colors.purple,
@@ -322,7 +323,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
                   // Information Section
                   Text(
-                    'About',
+                    SKeys.about.tr,
                     style: theme.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.w700,
                       color: AppColors.textPrimary,
@@ -371,7 +372,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             ),
                             const SizedBox(width: 12),
                             Text(
-                              'Settings Guide',
+                              SKeys.settingsGuide.tr,
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w700,
@@ -383,19 +384,17 @@ class _SettingsPageState extends State<SettingsPage> {
                         const SizedBox(height: 16),
                         _InfoTip(
                           icon: Icons.lock,
-                          text:
-                              'App Lock requires authentication when opening app',
+                          text: SKeys.appLockRequiresAuth.tr,
                         ),
                         const SizedBox(height: 12),
                         _InfoTip(
                           icon: Icons.fingerprint,
-                          text:
-                              'Quick Login uses fingerprint/PIN instead of password',
+                          text: SKeys.quickLoginUsesFingerprint.tr,
                         ),
                         const SizedBox(height: 12),
                         _InfoTip(
                           icon: Icons.bookmark,
-                          text: 'Remember Me keeps you logged in',
+                          text: SKeys.rememberMeKeepsLoggedIn.tr,
                         ),
                         const SizedBox(height: 16),
                         Container(
@@ -415,7 +414,7 @@ class _SettingsPageState extends State<SettingsPage> {
                               const SizedBox(width: 8),
                               Expanded(
                                 child: Text(
-                                  'Quick Login & Remember Me are set during login',
+                                  SKeys.quickLoginRememberMeSetDuringLogin.tr,
                                   style: TextStyle(
                                     fontSize: 12,
                                     color: Colors.amber.shade900,

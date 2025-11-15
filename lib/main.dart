@@ -6,6 +6,7 @@ import 'app/translations/app_translations.dart';
 import 'app/routes/app_pages.dart';
 import 'app/routes/app_routes.dart';
 import 'app/core/app_lifecycle_manager.dart';
+import 'app/data/services/storage_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,11 +16,23 @@ void main() async {
   final lifecycleManager = AppLifecycleManager();
   WidgetsBinding.instance.addObserver(lifecycleManager);
 
-  runApp(const MyApp());
+  // Load saved locale
+  final savedLocale = await StorageService.getLocale();
+  Locale initialLocale = const Locale('en', 'US');
+  if (savedLocale != null) {
+    final parts = savedLocale.split('_');
+    if (parts.length == 2) {
+      initialLocale = Locale(parts[0], parts[1]);
+    }
+  }
+
+  runApp(MyApp(initialLocale: initialLocale));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final Locale initialLocale;
+
+  const MyApp({super.key, required this.initialLocale});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +42,7 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.dark,
       themeMode: ThemeMode.light, // Force light theme (disable dark mode)
       translations: AppTranslations(),
-      locale: const Locale('en', 'US'),
+      locale: initialLocale,
       fallbackLocale: const Locale('en', 'US'),
       initialRoute: AppRoutes.splash,
       getPages: AppPages.pages,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/theme/app_colors.dart';
+import '../../core/values/app_strings.dart';
 import '../../data/models/history_model.dart';
 import 'history_controller.dart';
 
@@ -14,7 +15,7 @@ class HistoryPage extends GetView<HistoryController> {
       if (!controller.isTabControllerReady.value) {
         return Scaffold(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-          appBar: AppBar(title: const Text('History'), elevation: 0),
+          appBar: AppBar(title: Text(SKeys.history.tr), elevation: 0),
           body: const Center(child: CircularProgressIndicator()),
         );
       }
@@ -22,24 +23,24 @@ class HistoryPage extends GetView<HistoryController> {
       return Scaffold(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
-          title: const Text('History'),
+          title: Text(SKeys.history.tr),
           elevation: 0,
           bottom: controller.userType.value == 'supervisor'
               ? TabBar(
                   controller: controller.tabController,
                   onTap: controller.changeTab,
-                  tabs: const [
-                    Tab(text: 'Inspections'),
-                    Tab(text: 'Daily Checklists'),
+                  tabs: [
+                    Tab(text: SKeys.inspections.tr),
+                    Tab(text: SKeys.dailyChecklists.tr),
                   ],
                 )
               : TabBar(
                   controller: controller.tabController,
                   onTap: controller.changeTab,
-                  tabs: const [
-                    Tab(text: 'Incidents'),
-                    Tab(text: 'Inspections'),
-                    Tab(text: 'Daily Checklists'),
+                  tabs: [
+                    Tab(text: SKeys.incidents.tr),
+                    Tab(text: SKeys.inspections.tr),
+                    Tab(text: SKeys.dailyChecklists.tr),
                   ],
                 ),
         ),
@@ -69,7 +70,7 @@ class HistoryPage extends GetView<HistoryController> {
                   const SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: controller.refresh,
-                    child: const Text('Retry'),
+                    child: Text(SKeys.retry.tr),
                   ),
                 ],
               ),
@@ -113,8 +114,14 @@ class _IncidentsTab extends GetView<HistoryController> {
               ),
               const SizedBox(height: 16),
               Text(
-                'No incidents found',
+                SKeys.noIncidents.tr,
                 style: Theme.of(context).textTheme.titleMedium,
+              ),
+              const SizedBox(height: 8),
+              Text(
+                SKeys.incidentsWillAppear.tr,
+                style: Theme.of(context).textTheme.bodySmall,
+                textAlign: TextAlign.center,
               ),
             ],
           ),
@@ -231,8 +238,14 @@ class _InspectionsTab extends GetView<HistoryController> {
               ),
               const SizedBox(height: 16),
               Text(
-                'No inspections found',
+                SKeys.noInspections.tr,
                 style: Theme.of(context).textTheme.titleMedium,
+              ),
+              const SizedBox(height: 8),
+              Text(
+                SKeys.inspectionsWillAppear.tr,
+                style: Theme.of(context).textTheme.bodySmall,
+                textAlign: TextAlign.center,
               ),
             ],
           ),
@@ -394,8 +407,14 @@ class _ChecklistsTab extends GetView<HistoryController> {
               ),
               const SizedBox(height: 16),
               Text(
-                'No checklists found',
+                SKeys.noChecklists.tr,
                 style: Theme.of(context).textTheme.titleMedium,
+              ),
+              const SizedBox(height: 8),
+              Text(
+                SKeys.checklistsWillAppear.tr,
+                style: Theme.of(context).textTheme.bodySmall,
+                textAlign: TextAlign.center,
               ),
             ],
           ),

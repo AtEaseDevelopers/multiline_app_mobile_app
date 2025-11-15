@@ -48,11 +48,8 @@ class AuthService {
   /// Logout
   Future<void> logout() async {
     try {
-      // Save remember me state and credentials before clearing
-      final rememberMe = await StorageService.getRememberMe();
-      final rememberMeCredentials = rememberMe
-          ? await StorageService.getRememberMeCredentials()
-          : null;
+      // Save locale before clearing (to preserve language preference)
+      final savedLocale = await StorageService.getLocale();
 
       // Call logout API with authorization token
       try {
@@ -62,16 +59,15 @@ class AuthService {
         // This ensures user can logout even with network issues
       }
 
-      // Clear all stored data
+      // Clear all stored data (including remember me and auth data)
       await StorageService.clearAll();
 
-      // Restore remember me state and credentials if they were enabled
-      if (rememberMe && rememberMeCredentials != null) {
-        await StorageService.saveRememberMeCredentials(
-          email: rememberMeCredentials['email']!,
-          password: rememberMeCredentials['password']!,
-          userType: rememberMeCredentials['userType']!,
-        );
+      // Restore locale if it was saved
+      if (savedLocale != null) {
+        final parts = savedLocale.split('_');
+        if (parts.length == 2) {
+          await StorageService.saveLocale(parts[0], parts[1]);
+        }
       }
 
       // Clear API client headers

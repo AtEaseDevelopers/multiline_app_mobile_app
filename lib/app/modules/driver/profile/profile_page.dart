@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/values/app_strings.dart';
 import '../../../data/services/app_lock_service.dart';
 import '../../../data/services/biometric_service.dart';
 import '../../auth/auth_controller.dart';
@@ -248,16 +249,16 @@ class ProfilePage extends StatelessWidget {
           children: [
             Icon(Icons.logout, color: Colors.red[700]),
             const SizedBox(width: 12),
-            const Text('Logout'),
+            Text(SKeys.logout.tr),
           ],
         ),
-        content: const Text(
-          'Are you sure you want to logout?',
-          style: TextStyle(fontSize: 16),
+        content: Text(
+          SKeys.logoutConfirm.tr,
+          style: const TextStyle(fontSize: 16),
         ),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         actions: [
-          TextButton(onPressed: () => Get.back(), child: const Text('Cancel')),
+          TextButton(onPressed: () => Get.back(), child: Text(SKeys.cancel.tr)),
           ElevatedButton(
             onPressed: () async {
               // Close dialog first
@@ -271,7 +272,7 @@ class ProfilePage extends StatelessWidget {
               backgroundColor: Colors.red,
               foregroundColor: Colors.white,
             ),
-            child: const Text('Logout'),
+            child: Text(SKeys.logout.tr),
           ),
         ],
       ),

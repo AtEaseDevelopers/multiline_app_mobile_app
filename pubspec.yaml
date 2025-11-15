@@ -51,8 +51,8 @@ dependencies:
   # Biometric Authentication
   local_auth: ^2.3.0
   
-  # Image Picker
-  image_picker: ^1.0.7
+  # Image Picker (supports Android Photo Picker - no permissions needed on Android 13+)
+  image_picker: ^1.1.0
   
   # Permissions
   permission_handler: ^11.2.0

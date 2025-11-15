@@ -98,6 +98,220 @@ const Map<String, String> _en = {
   SKeys.helpSupport: 'Help & Support',
   SKeys.incidentsSummary: 'Incidents Summary',
   SKeys.inspectionsSummary: 'Inspections Summary',
+
+  // Common Actions & Buttons
+  SKeys.retry: 'Retry',
+  SKeys.loading: 'Loading',
+  SKeys.markAllRead: 'Mark All Read',
+  SKeys.unlock: 'Unlock',
+  SKeys.yes: 'Yes',
+  SKeys.no: 'No',
+  SKeys.save: 'Save',
+  SKeys.back: 'Back',
+  SKeys.close: 'Close',
+  SKeys.openSettings: 'Open Settings',
+  SKeys.downloadAgain: 'Download Again',
+
+  // Messages & Notifications
+  SKeys.permissionRequired: 'Permission Required',
+  SKeys.fileExists: 'File Exists',
+  SKeys.noDataAvailable: 'No data available',
+  SKeys.noReports: 'No reports available',
+  SKeys.loadingReports: 'Loading reports...',
+  SKeys.initializingPdfViewer: 'Initializing PDF viewer...',
+  SKeys.loadingReport: 'Loading report...',
+  SKeys.noPdfViewer: 'No PDF Viewer',
+  SKeys.fileLocation: 'File Location',
+  SKeys.yourReportSaved: 'Your report has been saved to:',
+  SKeys.showLocation: 'Show Location',
+  SKeys.failedToLoadImage: 'Failed to load image',
+
+  // Clock History
+  SKeys.clockHistory: 'Clock History',
+  SKeys.records: 'Records',
+  SKeys.noClockHistory: 'No Clock History',
+  SKeys.clockHistoryDesc: 'Your clock in/out history will appear here',
+  SKeys.viewClockHistory: 'View your clock in/out records',
+
+  // Rest Time
+  SKeys.takeRest: 'Take a Rest',
+  SKeys.backToWork: 'Back to Work',
+  SKeys.restBreak: 'Rest Break',
+  SKeys.restBreakDesc: 'You can take a rest break during your duty time.',
+  SKeys.startRest: 'Start Rest',
+  SKeys.endRest: 'End Rest',
+  SKeys.currentlyOnRest: 'Currently On Rest',
+  SKeys.onRestDesc: 'You are taking a break from duty',
+  SKeys.backToWorkConfirm:
+      'Are you ready to end your rest time and get back to work?',
+  SKeys.restNotes: 'Notes (Optional)',
+
+  // History & Details
+  SKeys.history: 'History',
+  SKeys.viewHistory: 'View History',
+  SKeys.historyDesc: 'Incidents, Inspections & Checklists',
+  SKeys.checklistDetails: 'Checklist Details',
+  SKeys.incidentDetails: 'Incident Details',
+  SKeys.inspectionDetails: 'Inspection Details',
+
+  // Approval/Rejection
+  SKeys.approveChecklist: 'Approve Checklist',
+  SKeys.rejectChecklist: 'Reject Checklist',
+  SKeys.approveInspection: 'Approve Inspection',
+  SKeys.rejectInspection: 'Reject Inspection',
+  SKeys.approveConfirm: 'Are you sure you want to approve this',
+  SKeys.rejectReason: 'Rejection Reason',
+  SKeys.provideReason: 'Please provide a reason for rejection:',
+  SKeys.addOptionalNotes: 'Add optional notes for this approval:',
+
+  // Photo & Media
+  SKeys.selectPhotoSource: 'Select Photo Source',
+  SKeys.camera: 'Camera',
+  SKeys.gallery: 'Gallery',
+  SKeys.addPhoto: 'Add Photo',
+  SKeys.takePhoto: 'Take Photo',
+
+  // Dashboard & Status
+  SKeys.welcomeBack: 'Welcome back',
+  SKeys.tapToGetStarted: 'Tap a card to get started',
+  SKeys.accessSubmissionHistory: 'Access your submission history',
+  SKeys.viewClockInOutRecords: 'View your clock in/out records',
+  SKeys.urgentClockOutRequired: 'Urgent Clock Out Required',
+  SKeys.clockedOutForToday: 'Clocked Out for Today',
+  SKeys.currentlyClockedIn: 'Currently Clocked In',
+  SKeys.alreadyClockedOutToday: 'Already Clocked Out Today',
+  SKeys.urgentClockOut: 'Urgent: Clock Out Required',
+  SKeys.undoClockOut: 'Undo Clock Out',
+  SKeys.undoClockOutConfirm:
+      'Are you sure you want to undo your recent clock out? You will be clocked in again.',
+  SKeys.yesUndo: 'Yes, Undo',
+
+  // Reports
+  SKeys.myReports: 'My Reports',
+  SKeys.driverReports: 'Driver Reports',
+  SKeys.viewDriverReports: 'View driver reports',
+
+  // Inspection
+  SKeys.noInspectionAvailable: 'No inspection checklist available',
+
+  // Team & Supervisor
+  SKeys.active: 'Active',
+  SKeys.driverLabel: 'Driver',
+
+  // Logout
+  SKeys.logout: 'Logout',
+  SKeys.logoutConfirm: 'Are you sure you want to logout?',
+
+  // Clock Details
+  SKeys.clockInDetails: 'Clock In Details',
+  SKeys.clockOutDetails: 'Clock Out Details',
+  SKeys.startOdometer: 'Start Odometer:',
+  SKeys.finalOdometer: 'Final Odometer:',
+  SKeys.clockedInAt: 'Clocked In At:',
+  SKeys.clockedOutAt: 'Clocked Out At:',
+  SKeys.odometerReadingLabel: 'Odometer Reading:',
+
+  // Button Labels
+  SKeys.completed: 'COMPLETED',
+
+  // Dialog Messages
+  SKeys.backToWorkQuestion: 'Back to Work?',
+  SKeys.backToWorkMessage:
+      'Are you ready to end your rest time and get back to work?',
+  SKeys.yesBackToWork: 'Yes, Back to Work',
+  SKeys.undoClockOutQuestion: 'Undo Clock Out?',
+  SKeys.undoClockOutMessage:
+      'Are you sure you want to undo your recent clock out? You will be clocked in again.',
+  SKeys.restDialogTitle: 'Take a Rest',
+  SKeys.restDialogMessage: 'You can take a rest break during your duty time.',
+  SKeys.restNotesLabel: 'Notes (Optional)',
+  SKeys.restNotesHint: 'e.g., Lunch break, Rest stop...',
+
+  // Reports Page
+  SKeys.refresh: 'Refresh',
+  SKeys.inspectionReports: 'Inspection Reports',
+  SKeys.newInspection: 'New Inspection',
+  SKeys.passed: 'Passed',
+  SKeys.failed: 'Failed',
+  SKeys.underReview: 'Under Review',
+  SKeys.today: 'Today',
+  SKeys.yesterday: 'Yesterday',
+  SKeys.daysAgo: 'days ago',
+  SKeys.download: 'Download',
+  SKeys.open: 'Open',
+
+  // Snackbar/Toast Messages
+  SKeys.error: 'Error',
+  SKeys.success: 'Success',
+  SKeys.networkError: 'Network Error',
+  SKeys.failedToLoadDashboard: 'Failed to load dashboard data',
+  SKeys.restStarted: 'Rest started successfully',
+  SKeys.restEnded: 'Welcome back! Rest ended',
+  SKeys.undoSuccessful: 'Clock out undone successfully',
+  SKeys.clockOutReminder: 'Clock Out Reminder',
+  SKeys.forgotClockOut: 'Forgot to Clock Out?',
+  SKeys.pleaseClockOut: 'Please clock out to complete your day',
+
+  // History Page
+  SKeys.incidents: 'Incidents',
+  SKeys.inspections: 'Inspections',
+  SKeys.dailyChecklists: 'Daily Checklists',
+  SKeys.noIncidents: 'No Incidents',
+  SKeys.noInspections: 'No Inspections',
+  SKeys.noChecklists: 'No Checklists',
+  SKeys.incidentsWillAppear: 'Your incident reports will appear here',
+  SKeys.inspectionsWillAppear: 'Your inspection reports will appear here',
+  SKeys.checklistsWillAppear: 'Your checklist submissions will appear here',
+
+  // Detail Pages
+  SKeys.viewDetails: 'View Details',
+  SKeys.submittedBy: 'Submitted By',
+  SKeys.submittedAt: 'Submitted At',
+  SKeys.reviewedBy: 'Reviewed By',
+  SKeys.reviewedAt: 'Reviewed At',
+  SKeys.pending: 'Pending',
+  SKeys.notes: 'Notes',
+  SKeys.remarks: 'Remarks',
+
+  // Settings Page
+  SKeys.securityPrivacy: 'Security & Privacy',
+  SKeys.appLock: 'App Lock',
+  SKeys.quickLogin: 'Quick Login',
+  SKeys.enabledAppRequiresUnlock: 'Enabled - App requires unlock',
+  SKeys.disabledNoProtection: 'Disabled - No protection',
+  SKeys.useDeviceLockToLogin: 'Use device lock to login',
+  SKeys.configureDuringLogin: 'Configure during login',
+  SKeys.stayLoggedIn: 'Stay logged in',
+  SKeys.about: 'About',
+  SKeys.settingsGuide: 'Settings Guide',
+  SKeys.appLockRequiresAuth:
+      'App Lock requires authentication when opening app',
+  SKeys.quickLoginUsesFingerprint:
+      'Quick Login uses fingerprint/PIN instead of password',
+  SKeys.rememberMeKeepsLoggedIn: 'Remember Me keeps you logged in',
+  SKeys.quickLoginRememberMeSetDuringLogin:
+      'Quick Login & Remember Me are set during login',
+  SKeys.appLockEnabled: 'App Lock Enabled',
+  SKeys.appNowProtected: 'Your app is now protected with device lock',
+  SKeys.authenticationFailed: 'Authentication Failed',
+  SKeys.pleaseTryAgain: 'Please try again',
+  SKeys.couldNotEnableAppLock: 'Could not enable app lock',
+  SKeys.disableAppLock: 'Disable App Lock?',
+  SKeys.appNoLongerRequireAuth:
+      'Your app will no longer require authentication when opening.',
+  SKeys.disable: 'Disable',
+  SKeys.appLockDisabled: 'App Lock Disabled',
+  SKeys.appNoLongerProtected: 'Your app is no longer protected',
+  SKeys.disableRememberMe: 'Disable Remember Me?',
+  SKeys.willLogoutNextTime:
+      'You will need to login next time you open the app.',
+  SKeys.rememberMeDisabled: 'Remember Me Disabled',
+  SKeys.willRequireLoginNextTime: 'You will need to login again next time',
+  SKeys.disableQuickLogin: 'Disable Quick Login?',
+  SKeys.willRequirePasswordNextTime:
+      'You will need to enter password next time you login.',
+  SKeys.quickLoginDisabled: 'Quick Login Disabled',
+  SKeys.willRequirePasswordLogin: 'You will need to use password to login',
 };
 
 const Map<String, String> _ms = {
@@ -192,4 +406,221 @@ const Map<String, String> _ms = {
   SKeys.helpSupport: 'Bantuan & Sokongan',
   SKeys.incidentsSummary: 'Ringkasan Insiden',
   SKeys.inspectionsSummary: 'Ringkasan Pemeriksaan',
+
+  // Common Actions & Buttons
+  SKeys.retry: 'Cuba Lagi',
+  SKeys.loading: 'Memuatkan',
+  SKeys.markAllRead: 'Tanda Semua Dibaca',
+  SKeys.unlock: 'Buka Kunci',
+  SKeys.yes: 'Ya',
+  SKeys.no: 'Tidak',
+  SKeys.save: 'Simpan',
+  SKeys.back: 'Kembali',
+  SKeys.close: 'Tutup',
+  SKeys.openSettings: 'Buka Tetapan',
+  SKeys.downloadAgain: 'Muat Turun Semula',
+
+  // Messages & Notifications
+  SKeys.permissionRequired: 'Kebenaran Diperlukan',
+  SKeys.fileExists: 'Fail Wujud',
+  SKeys.noDataAvailable: 'Tiada data tersedia',
+  SKeys.noReports: 'Tiada laporan tersedia',
+  SKeys.loadingReports: 'Memuatkan laporan...',
+  SKeys.initializingPdfViewer: 'Memulakan paparan PDF...',
+  SKeys.loadingReport: 'Memuatkan laporan...',
+  SKeys.noPdfViewer: 'Tiada Paparan PDF',
+  SKeys.fileLocation: 'Lokasi Fail',
+  SKeys.yourReportSaved: 'Laporan anda telah disimpan di:',
+  SKeys.showLocation: 'Tunjuk Lokasi',
+  SKeys.failedToLoadImage: 'Gagal memuatkan gambar',
+
+  // Clock History
+  SKeys.clockHistory: 'Sejarah Masa Kerja',
+  SKeys.records: 'Rekod',
+  SKeys.noClockHistory: 'Tiada Sejarah Masa Kerja',
+  SKeys.clockHistoryDesc: 'Sejarah mula/tamat kerja anda akan muncul di sini',
+  SKeys.viewClockHistory: 'Lihat rekod mula/tamat kerja anda',
+
+  // Rest Time
+  SKeys.takeRest: 'Berehat',
+  SKeys.backToWork: 'Kembali Bekerja',
+  SKeys.restBreak: 'Rehat',
+  SKeys.restBreakDesc: 'Anda boleh berehat semasa waktu bertugas.',
+  SKeys.startRest: 'Mula Rehat',
+  SKeys.endRest: 'Tamat Rehat',
+  SKeys.currentlyOnRest: 'Sedang Berehat',
+  SKeys.onRestDesc: 'Anda sedang berehat dari tugas',
+  SKeys.backToWorkConfirm:
+      'Adakah anda bersedia untuk tamatkan rehat dan kembali bekerja?',
+  SKeys.restNotes: 'Catatan (Pilihan)',
+
+  // History & Details
+  SKeys.history: 'Sejarah',
+  SKeys.viewHistory: 'Lihat Sejarah',
+  SKeys.historyDesc: 'Insiden, Pemeriksaan & Senarai Semak',
+  SKeys.checklistDetails: 'Butiran Senarai Semak',
+  SKeys.incidentDetails: 'Butiran Insiden',
+  SKeys.inspectionDetails: 'Butiran Pemeriksaan',
+
+  // Approval/Rejection
+  SKeys.approveChecklist: 'Lulus Senarai Semak',
+  SKeys.rejectChecklist: 'Tolak Senarai Semak',
+  SKeys.approveInspection: 'Lulus Pemeriksaan',
+  SKeys.rejectInspection: 'Tolak Pemeriksaan',
+  SKeys.approveConfirm: 'Adakah anda pasti mahu meluluskan ini',
+  SKeys.rejectReason: 'Sebab Penolakan',
+  SKeys.provideReason: 'Sila berikan sebab untuk penolakan:',
+  SKeys.addOptionalNotes: 'Tambah catatan pilihan untuk kelulusan ini:',
+
+  // Photo & Media
+  SKeys.selectPhotoSource: 'Pilih Sumber Gambar',
+  SKeys.camera: 'Kamera',
+  SKeys.gallery: 'Galeri',
+  SKeys.addPhoto: 'Tambah Gambar',
+  SKeys.takePhoto: 'Ambil Gambar',
+
+  // Dashboard & Status
+  SKeys.welcomeBack: 'Selamat kembali',
+  SKeys.tapToGetStarted: 'Ketik kad untuk mulakan',
+  SKeys.accessSubmissionHistory: 'Akses sejarah penghantaran anda',
+  SKeys.viewClockInOutRecords: 'Lihat rekod mula/tamat kerja anda',
+  SKeys.urgentClockOutRequired: 'Tamat Kerja Segera Diperlukan',
+  SKeys.clockedOutForToday: 'Telah Tamat Kerja Hari Ini',
+  SKeys.currentlyClockedIn: 'Sedang Bertugas',
+  SKeys.alreadyClockedOutToday: 'Sudah Tamat Kerja Hari Ini',
+  SKeys.urgentClockOut: 'Segera: Tamat Kerja Diperlukan',
+  SKeys.undoClockOut: 'Batal Tamat Kerja',
+  SKeys.undoClockOutConfirm:
+      'Adakah anda pasti mahu membatalkan tamat kerja? Anda akan kembali bertugas.',
+  SKeys.yesUndo: 'Ya, Batal',
+
+  // Reports
+  SKeys.myReports: 'Laporan Saya',
+  SKeys.driverReports: 'Laporan Pemandu',
+  SKeys.viewDriverReports: 'Lihat laporan pemandu',
+
+  // Inspection
+  SKeys.noInspectionAvailable: 'Tiada senarai pemeriksaan tersedia',
+
+  // Team & Supervisor
+  SKeys.active: 'Aktif',
+  SKeys.driverLabel: 'Pemandu',
+
+  // Logout
+  SKeys.logout: 'Log Keluar',
+  SKeys.logoutConfirm: 'Adakah anda pasti mahu log keluar?',
+
+  // Clock Details
+  SKeys.clockInDetails: 'Butiran Mula Kerja',
+  SKeys.clockOutDetails: 'Butiran Tamat Kerja',
+  SKeys.startOdometer: 'Odometer Mula:',
+  SKeys.finalOdometer: 'Odometer Akhir:',
+  SKeys.clockedInAt: 'Mula Kerja Pada:',
+  SKeys.clockedOutAt: 'Tamat Kerja Pada:',
+  SKeys.odometerReadingLabel: 'Bacaan Odometer:',
+
+  // Button Labels
+  SKeys.completed: 'SELESAI',
+
+  // Dialog Messages
+  SKeys.backToWorkQuestion: 'Kembali Bekerja?',
+  SKeys.backToWorkMessage:
+      'Adakah anda bersedia untuk mengakhiri masa rehat dan kembali bekerja?',
+  SKeys.yesBackToWork: 'Ya, Kembali Bekerja',
+  SKeys.undoClockOutQuestion: 'Batal Tamat Kerja?',
+  SKeys.undoClockOutMessage:
+      'Adakah anda pasti mahu membatalkan tamat kerja baru-baru ini? Anda akan kembali bertugas.',
+  SKeys.restDialogTitle: 'Berehat',
+  SKeys.restDialogMessage: 'Anda boleh berehat seketika semasa waktu bertugas.',
+  SKeys.restNotesLabel: 'Nota (Pilihan)',
+  SKeys.restNotesHint: 'cth: Rehat makan tengahari, Perhentian rehat...',
+
+  // Reports Page
+  SKeys.refresh: 'Muat Semula',
+  SKeys.inspectionReports: 'Laporan Pemeriksaan',
+  SKeys.newInspection: 'Pemeriksaan Baru',
+  SKeys.passed: 'Lulus',
+  SKeys.failed: 'Gagal',
+  SKeys.underReview: 'Dalam Semakan',
+  SKeys.today: 'Hari Ini',
+  SKeys.yesterday: 'Semalam',
+  SKeys.daysAgo: 'hari yang lalu',
+  SKeys.download: 'Muat Turun',
+  SKeys.open: 'Buka',
+
+  // Snackbar/Toast Messages
+  SKeys.error: 'Ralat',
+  SKeys.success: 'Berjaya',
+  SKeys.networkError: 'Ralat Rangkaian',
+  SKeys.failedToLoadDashboard: 'Gagal memuatkan data papan pemuka',
+  SKeys.restStarted: 'Rehat bermula dengan jayanya',
+  SKeys.restEnded: 'Selamat kembali! Rehat tamat',
+  SKeys.undoSuccessful: 'Tamat kerja dibatalkan dengan jayanya',
+  SKeys.clockOutReminder: 'Peringatan Tamat Kerja',
+  SKeys.forgotClockOut: 'Terlupa Tamat Kerja?',
+  SKeys.pleaseClockOut: 'Sila tamat kerja untuk melengkapkan hari anda',
+
+  // History Page
+  SKeys.incidents: 'Insiden',
+  SKeys.inspections: 'Pemeriksaan',
+  SKeys.dailyChecklists: 'Senarai Semak Harian',
+  SKeys.noIncidents: 'Tiada Insiden',
+  SKeys.noInspections: 'Tiada Pemeriksaan',
+  SKeys.noChecklists: 'Tiada Senarai Semak',
+  SKeys.incidentsWillAppear: 'Laporan insiden anda akan muncul di sini',
+  SKeys.inspectionsWillAppear: 'Laporan pemeriksaan anda akan muncul di sini',
+  SKeys.checklistsWillAppear:
+      'Penyerahan senarai semak anda akan muncul di sini',
+
+  // Detail Pages
+  SKeys.viewDetails: 'Lihat Butiran',
+  SKeys.submittedBy: 'Diserahkan Oleh',
+  SKeys.submittedAt: 'Diserahkan Pada',
+  SKeys.reviewedBy: 'Disemak Oleh',
+  SKeys.reviewedAt: 'Disemak Pada',
+  SKeys.pending: 'Menunggu',
+  SKeys.notes: 'Nota',
+  SKeys.remarks: 'Catatan',
+
+  // Settings Page
+  SKeys.securityPrivacy: 'Keselamatan & Privasi',
+  SKeys.appLock: 'Kunci Aplikasi',
+  SKeys.quickLogin: 'Log Masuk Pantas',
+  SKeys.enabledAppRequiresUnlock: 'Diaktifkan - Aplikasi memerlukan buka kunci',
+  SKeys.disabledNoProtection: 'Dilumpuhkan - Tiada perlindungan',
+  SKeys.useDeviceLockToLogin: 'Gunakan kunci peranti untuk log masuk',
+  SKeys.configureDuringLogin: 'Konfigurasikan semasa log masuk',
+  SKeys.stayLoggedIn: 'Kekal log masuk',
+  SKeys.about: 'Tentang',
+  SKeys.settingsGuide: 'Panduan Tetapan',
+  SKeys.appLockRequiresAuth:
+      'Kunci Aplikasi memerlukan pengesahan semasa membuka aplikasi',
+  SKeys.quickLoginUsesFingerprint:
+      'Log Masuk Pantas menggunakan cap jari/PIN sebagai ganti kata laluan',
+  SKeys.rememberMeKeepsLoggedIn: 'Ingat Saya memastikan anda kekal log masuk',
+  SKeys.quickLoginRememberMeSetDuringLogin:
+      'Log Masuk Pantas & Ingat Saya ditetapkan semasa log masuk',
+  SKeys.appLockEnabled: 'Kunci Aplikasi Diaktifkan',
+  SKeys.appNowProtected: 'Aplikasi anda kini dilindungi dengan kunci peranti',
+  SKeys.authenticationFailed: 'Pengesahan Gagal',
+  SKeys.pleaseTryAgain: 'Sila cuba lagi',
+  SKeys.couldNotEnableAppLock: 'Tidak dapat mengaktifkan kunci aplikasi',
+  SKeys.disableAppLock: 'Lumpuhkan Kunci Aplikasi?',
+  SKeys.appNoLongerRequireAuth:
+      'Aplikasi anda tidak lagi memerlukan pengesahan semasa membuka.',
+  SKeys.disable: 'Lumpuhkan',
+  SKeys.appLockDisabled: 'Kunci Aplikasi Dilumpuhkan',
+  SKeys.appNoLongerProtected: 'Aplikasi anda tidak lagi dilindungi',
+  SKeys.disableRememberMe: 'Lumpuhkan Ingat Saya?',
+  SKeys.willLogoutNextTime:
+      'Anda perlu log masuk semula pada kali berikutnya anda membuka aplikasi.',
+  SKeys.rememberMeDisabled: 'Ingat Saya Dilumpuhkan',
+  SKeys.willRequireLoginNextTime:
+      'Anda perlu log masuk semula pada kali berikutnya',
+  SKeys.disableQuickLogin: 'Lumpuhkan Log Masuk Pantas?',
+  SKeys.willRequirePasswordNextTime:
+      'Anda perlu masukkan kata laluan pada kali berikutnya anda log masuk.',
+  SKeys.quickLoginDisabled: 'Log Masuk Pantas Dilumpuhkan',
+  SKeys.willRequirePasswordLogin:
+      'Anda perlu menggunakan kata laluan untuk log masuk',
 };

@@ -246,11 +246,11 @@ class _LogoutButton extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return CustomDialog(
-          title: 'Logout',
-          content: 'Are you sure you want to logout?',
+          title: SKeys.logout.tr,
+          content: SKeys.logoutConfirm.tr,
           icon: Icons.logout_rounded,
           iconColor: Colors.red,
-          confirmText: 'Logout',
+          confirmText: SKeys.logout.tr,
           isDanger: true,
           onConfirm: () {
             Navigator.of(context).pop();
@@ -280,7 +280,7 @@ class _HomeTab extends StatelessWidget {
 
           _SectionHeading(
             label: SKeys.quickActions.tr,
-            subtitle: 'Tap a card to get started',
+            subtitle: SKeys.tapToGetStarted.tr,
           ),
           const SizedBox(height: 16),
           Obx(() {
@@ -355,8 +355,8 @@ class _HomeTab extends StatelessWidget {
                 ),
                 _QuickActionConfig(
                   icon: Icons.assignment,
-                  title: 'My Reports',
-                  subtitle: 'View driver reports',
+                  title: SKeys.myReports.tr,
+                  subtitle: SKeys.viewDriverReports.tr,
                   color: AppColors.brandBlue,
                   onTap: () {
                     // Get driver ID from dashboard data
@@ -380,7 +380,7 @@ class _HomeTab extends StatelessWidget {
           const SizedBox(height: 32),
           _SectionHeading(
             label: SKeys.viewRecords.tr,
-            subtitle: 'Access your submission history',
+            subtitle: SKeys.accessSubmissionHistory.tr,
           ),
           const SizedBox(height: 16),
           _HistoryNavigationCard(),
@@ -463,25 +463,25 @@ class _DriverInfoCard extends GetView<DriverDashboardController> {
         // Red/Orange for urgent clock out needed
         primaryColor = Colors.red.shade600;
         secondaryColor = Colors.red.shade400;
-        statusText = 'Urgent Clock Out Required';
+        statusText = SKeys.urgentClockOutRequired.tr;
         statusIcon = Icons.warning;
       } else if (controller.isCurrentlyClockedIn) {
         // Green for clocked in
         primaryColor = Colors.green.shade600;
         secondaryColor = Colors.green.shade400;
-        statusText = 'Currently Clocked In';
+        statusText = SKeys.currentlyClockedIn.tr;
         statusIcon = Icons.check_circle;
       } else if (!controller.canClockInToday) {
         // Yellow/Orange for already clocked out today
         primaryColor = Colors.orange.shade600;
         secondaryColor = Colors.orange.shade400;
-        statusText = 'Clocked Out for Today';
+        statusText = SKeys.clockedOutForToday.tr;
         statusIcon = Icons.timer_off;
       } else {
         // Default red for not clocked in
         primaryColor = Colors.red.shade600;
         secondaryColor = Colors.red.shade400;
-        statusText = 'Not Clocked In';
+        statusText = SKeys.notClockedIn.tr;
         statusIcon = Icons.access_time;
       }
 
@@ -664,7 +664,7 @@ class _DriverInfoCard extends GetView<DriverDashboardController> {
                         Icon(Icons.speed, color: Colors.white, size: 20),
                         const SizedBox(width: 8),
                         Text(
-                          'Odometer Reading:',
+                          SKeys.odometerReadingLabel.tr,
                           style: TextStyle(
                             color: Colors.white.withValues(alpha: 0.9),
                             fontSize: 13,
@@ -694,7 +694,7 @@ class _DriverInfoCard extends GetView<DriverDashboardController> {
                         const SizedBox(width: 8),
                         Expanded(
                           child: Text(
-                            'Clocked In At:',
+                            SKeys.clockedInAt.tr,
                             style: TextStyle(
                               color: Colors.white.withValues(alpha: 0.9),
                               fontSize: 13,
@@ -747,9 +747,9 @@ class _DriverInfoCard extends GetView<DriverDashboardController> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
-                            'Currently On Rest',
-                            style: TextStyle(
+                          Text(
+                            SKeys.currentlyOnRest.tr,
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 15,
                               fontWeight: FontWeight.w700,
@@ -758,7 +758,7 @@ class _DriverInfoCard extends GetView<DriverDashboardController> {
                           ),
                           const SizedBox(height: 4),
                           Text(
-                            'You are taking a break from duty',
+                            SKeys.onRestDesc.tr,
                             style: TextStyle(
                               color: Colors.white.withValues(alpha: 0.85),
                               fontSize: 12,
@@ -813,9 +813,9 @@ class _DriverInfoCard extends GetView<DriverDashboardController> {
                           ),
                         ),
                         const SizedBox(width: 12),
-                        const Text(
-                          'Clock In Details',
-                          style: TextStyle(
+                        Text(
+                          SKeys.clockInDetails.tr,
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 15,
                             fontWeight: FontWeight.w700,
@@ -836,7 +836,7 @@ class _DriverInfoCard extends GetView<DriverDashboardController> {
                         const Icon(Icons.speed, color: Colors.white, size: 18),
                         const SizedBox(width: 8),
                         Text(
-                          'Start Odometer:',
+                          SKeys.startOdometer.tr,
                           style: TextStyle(
                             color: Colors.white.withValues(alpha: 0.9),
                             fontSize: 13,
@@ -866,7 +866,7 @@ class _DriverInfoCard extends GetView<DriverDashboardController> {
                         const SizedBox(width: 8),
                         Expanded(
                           child: Text(
-                            'Clocked In At:',
+                            SKeys.clockedInAt.tr,
                             style: TextStyle(
                               color: Colors.white.withValues(alpha: 0.9),
                               fontSize: 13,
@@ -920,9 +920,9 @@ class _DriverInfoCard extends GetView<DriverDashboardController> {
                             ),
                           ),
                           const SizedBox(width: 12),
-                          const Text(
-                            'Clock Out Details',
-                            style: TextStyle(
+                          Text(
+                            SKeys.clockOutDetails.tr,
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 15,
                               fontWeight: FontWeight.w700,
@@ -947,7 +947,7 @@ class _DriverInfoCard extends GetView<DriverDashboardController> {
                           ),
                           const SizedBox(width: 8),
                           Text(
-                            'Final Odometer:',
+                            SKeys.finalOdometer.tr,
                             style: TextStyle(
                               color: Colors.white.withValues(alpha: 0.9),
                               fontSize: 13,
@@ -977,7 +977,7 @@ class _DriverInfoCard extends GetView<DriverDashboardController> {
                           const SizedBox(width: 8),
                           Expanded(
                             child: Text(
-                              'Clocked Out At:',
+                              SKeys.clockedOutAt.tr,
                               style: TextStyle(
                                 color: Colors.white.withValues(alpha: 0.9),
                                 fontSize: 13,
@@ -1034,8 +1034,8 @@ class _DriverInfoCard extends GetView<DriverDashboardController> {
                       const SizedBox(width: 10),
                       Text(
                         controller.shouldEnableClockInButton
-                            ? 'Clock In'
-                            : 'Already Clocked Out Today',
+                            ? SKeys.clockIn.tr
+                            : SKeys.alreadyClockedOutToday.tr,
                         style: const TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w700,
@@ -1068,18 +1068,18 @@ class _DriverInfoCard extends GetView<DriverDashboardController> {
                       borderRadius: BorderRadius.circular(16),
                     ),
                   ),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.logout_rounded,
                         size: 22,
                         color: Color(0xFF3B82F6),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Text(
-                        'Clock Out',
-                        style: TextStyle(
+                        SKeys.clockOut.tr,
+                        style: const TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w700,
                           letterSpacing: 0.3,
@@ -1122,18 +1122,18 @@ class _DriverInfoCard extends GetView<DriverDashboardController> {
                         borderRadius: BorderRadius.circular(16),
                       ),
                     ),
-                    child: const Row(
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.warning_rounded,
                           size: 22,
                           color: Colors.white,
                         ),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         Text(
-                          'Urgent: Clock Out Required',
-                          style: TextStyle(
+                          SKeys.urgentClockOut.tr,
+                          style: const TextStyle(
                             fontSize: 17,
                             fontWeight: FontWeight.w700,
                             letterSpacing: 0.3,
@@ -1157,17 +1157,15 @@ class _DriverInfoCard extends GetView<DriverDashboardController> {
                       // Show confirmation dialog for ending rest
                       Get.dialog(
                         AlertDialog(
-                          title: const Text('Back to Work?'),
-                          content: const Text(
-                            'Are you ready to end your rest time and get back to work?',
-                          ),
+                          title: Text(SKeys.backToWorkQuestion.tr),
+                          content: Text(SKeys.backToWorkMessage.tr),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16),
                           ),
                           actions: [
                             TextButton(
                               onPressed: () => Get.back(),
-                              child: const Text('Cancel'),
+                              child: Text(SKeys.cancel.tr),
                             ),
                             ElevatedButton(
                               onPressed: () {
@@ -1177,7 +1175,7 @@ class _DriverInfoCard extends GetView<DriverDashboardController> {
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.green,
                               ),
-                              child: const Text('Yes, Back to Work'),
+                              child: Text(SKeys.yesBackToWork.tr),
                             ),
                           ],
                         ),
@@ -1214,8 +1212,8 @@ class _DriverInfoCard extends GetView<DriverDashboardController> {
                       const SizedBox(width: 10),
                       Text(
                         controller.hasActiveRest
-                            ? 'Back to Work'
-                            : 'Take a Rest',
+                            ? SKeys.backToWork.tr
+                            : SKeys.takeRest.tr,
                         style: const TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w700,
@@ -1238,14 +1236,12 @@ class _DriverInfoCard extends GetView<DriverDashboardController> {
                     // Show confirmation dialog
                     Get.dialog(
                       AlertDialog(
-                        title: const Text('Undo Clock Out?'),
-                        content: const Text(
-                          'Are you sure you want to undo your recent clock out? You will be clocked in again.',
-                        ),
+                        title: Text(SKeys.undoClockOutQuestion.tr),
+                        content: Text(SKeys.undoClockOutMessage.tr),
                         actions: [
                           TextButton(
                             onPressed: () => Get.back(),
-                            child: const Text('Cancel'),
+                            child: Text(SKeys.cancel.tr),
                           ),
                           ElevatedButton(
                             onPressed: () {
@@ -1255,7 +1251,7 @@ class _DriverInfoCard extends GetView<DriverDashboardController> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.orange,
                             ),
-                            child: const Text('Yes, Undo'),
+                            child: Text(SKeys.yesUndo.tr),
                           ),
                         ],
                       ),
@@ -1269,13 +1265,13 @@ class _DriverInfoCard extends GetView<DriverDashboardController> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.undo, size: 20, color: Colors.white),
                       SizedBox(width: 8),
                       Text(
-                        'Undo Clock Out',
+                        SKeys.undoClockOut.tr,
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -1322,27 +1318,24 @@ class _DriverInfoCard extends GetView<DriverDashboardController> {
 
     Get.dialog(
       AlertDialog(
-        title: const Row(
+        title: Row(
           children: [
             Icon(Icons.coffee_rounded, color: Colors.orange),
             SizedBox(width: 12),
-            Text('Take a Rest'),
+            Text(SKeys.restDialogTitle.tr),
           ],
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'You can take a rest break during your duty time.',
-              style: TextStyle(fontSize: 14),
-            ),
+            Text(SKeys.restDialogMessage.tr, style: TextStyle(fontSize: 14)),
             const SizedBox(height: 16),
             TextField(
               controller: notesController,
               decoration: InputDecoration(
-                labelText: 'Notes (Optional)',
-                hintText: 'e.g., Lunch break, Rest stop...',
+                labelText: SKeys.restNotesLabel.tr,
+                hintText: SKeys.restNotesHint.tr,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -1363,7 +1356,7 @@ class _DriverInfoCard extends GetView<DriverDashboardController> {
                 notesController.dispose();
               });
             },
-            child: const Text('Cancel'),
+            child: Text(SKeys.cancel.tr),
           ),
           ElevatedButton(
             onPressed: () {
@@ -1378,7 +1371,7 @@ class _DriverInfoCard extends GetView<DriverDashboardController> {
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.orange.shade600,
             ),
-            child: const Text('Start Rest'),
+            child: Text(SKeys.startRest.tr),
           ),
         ],
       ),
@@ -1433,9 +1426,9 @@ class _HistoryNavigationCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'View History',
-                    style: TextStyle(
+                  Text(
+                    SKeys.viewHistory.tr,
+                    style: const TextStyle(
                       fontSize: 19,
                       fontWeight: FontWeight.w800,
                       color: Colors.white,
@@ -1444,7 +1437,7 @@ class _HistoryNavigationCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    'Incidents, Inspections & Checklists',
+                    SKeys.historyDesc.tr,
                     style: TextStyle(
                       fontSize: 13,
                       color: Colors.white.withValues(alpha: 0.9),
@@ -1513,9 +1506,9 @@ class _ClockHistoryNavigationCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Clock History',
-                    style: TextStyle(
+                  Text(
+                    SKeys.clockHistory.tr,
+                    style: const TextStyle(
                       fontSize: 19,
                       fontWeight: FontWeight.w800,
                       color: Colors.white,
@@ -1524,7 +1517,7 @@ class _ClockHistoryNavigationCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    'View your clock in/out records',
+                    SKeys.viewClockInOutRecords.tr,
                     style: TextStyle(
                       fontSize: 13,
                       color: Colors.white.withValues(alpha: 0.9),

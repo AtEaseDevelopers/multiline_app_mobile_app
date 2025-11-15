@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/theme/app_colors.dart';
+import '../../../core/values/app_strings.dart';
 import '../../../routes/app_routes.dart';
 import '../../../widgets/primary_button.dart';
 
@@ -15,10 +16,10 @@ class DriverReportsPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColors.bg,
         elevation: 0,
-        title: const Text('My Reports'),
-        titleTextStyle: Theme.of(context).textTheme.titleLarge?.copyWith(
-          fontWeight: FontWeight.w600,
-        ),
+        title: Text(SKeys.myReports.tr),
+        titleTextStyle: Theme.of(
+          context,
+        ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600),
       ),
       body: Column(
         children: [
@@ -29,21 +30,21 @@ class DriverReportsPage extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    'Inspection Reports',
+                    SKeys.inspectionReports.tr,
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
                 PrimaryButton(
-                  text: 'New Inspection',
+                  text: SKeys.newInspection.tr,
                   icon: Icons.add,
                   onPressed: () => Get.toNamed(AppRoutes.inspection),
                 ),
               ],
             ),
           ),
-          
+
           // Reports List
           Expanded(
             child: ListView.builder(
@@ -63,7 +64,7 @@ class DriverReportsPage extends StatelessWidget {
 
 class _ReportCard extends StatelessWidget {
   final _InspectionReport report;
-  
+
   const _ReportCard({required this.report});
 
   @override
@@ -80,10 +81,7 @@ class _ReportCard extends StatelessWidget {
             offset: const Offset(0, 2),
           ),
         ],
-        border: Border.all(
-          color: Colors.grey.withValues(alpha: 0.1),
-          width: 1,
-        ),
+        border: Border.all(color: Colors.grey.withValues(alpha: 0.1), width: 1),
       ),
       child: ListTile(
         contentPadding: const EdgeInsets.all(16),
@@ -94,17 +92,13 @@ class _ReportCard extends StatelessWidget {
             color: report.statusColor.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(12),
           ),
-          child: Icon(
-            report.statusIcon,
-            color: report.statusColor,
-            size: 24,
-          ),
+          child: Icon(report.statusIcon, color: report.statusColor, size: 24),
         ),
         title: Text(
           report.title,
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-            fontWeight: FontWeight.w600,
-          ),
+          style: Theme.of(
+            context,
+          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
         ),
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -112,9 +106,9 @@ class _ReportCard extends StatelessWidget {
             const SizedBox(height: 4),
             Text(
               report.date,
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: AppColors.textSecondary,
-              ),
+              style: Theme.of(
+                context,
+              ).textTheme.bodySmall?.copyWith(color: AppColors.textSecondary),
             ),
             const SizedBox(height: 8),
             Container(

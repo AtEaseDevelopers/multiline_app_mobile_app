@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/values/app_strings.dart';
 import '../../../widgets/shimmer_loading.dart';
 import 'clock_history_controller.dart';
 
@@ -14,8 +15,8 @@ class ClockHistoryPage extends GetView<ClockHistoryController> {
       appBar: AppBar(
         backgroundColor: AppColors.bg,
         elevation: 0,
-        title: const Text(
-          'Clock History',
+        title: Text(
+          SKeys.clockHistory.tr,
           style: TextStyle(fontWeight: FontWeight.w600),
         ),
         actions: [
@@ -24,7 +25,7 @@ class ClockHistoryPage extends GetView<ClockHistoryController> {
               padding: const EdgeInsets.only(right: 16),
               child: Center(
                 child: Text(
-                  '${controller.totalRecords.value} Records',
+                  '${controller.totalRecords.value} ${SKeys.records.tr}',
                   style: TextStyle(
                     color: AppColors.textSecondary,
                     fontSize: 14,
@@ -197,7 +198,7 @@ class ClockHistoryPage extends GetView<ClockHistoryController> {
             Icon(Icons.error_outline, size: 64, color: Colors.red.shade400),
             const SizedBox(height: 16),
             Text(
-              controller.errorMessage.value ?? 'Something went wrong',
+              controller.errorMessage.value ?? SKeys.somethingWentWrong.tr,
               textAlign: TextAlign.center,
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
             ),
@@ -205,7 +206,7 @@ class ClockHistoryPage extends GetView<ClockHistoryController> {
             ElevatedButton.icon(
               onPressed: controller.loadClockHistory,
               icon: const Icon(Icons.refresh),
-              label: const Text('Retry'),
+              label: Text(SKeys.retry.tr),
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 24,
@@ -233,7 +234,7 @@ class ClockHistoryPage extends GetView<ClockHistoryController> {
             ),
             const SizedBox(height: 16),
             Text(
-              'No Clock History',
+              SKeys.noClockHistory.tr,
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
@@ -242,7 +243,7 @@ class ClockHistoryPage extends GetView<ClockHistoryController> {
             ),
             const SizedBox(height: 8),
             Text(
-              'Your clock in/out history will appear here',
+              SKeys.clockHistoryDesc.tr,
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
             ),

@@ -21,6 +21,7 @@ class StorageService {
       'biometric_email'; // stores generic identifier (email/ID/phone)
   static const String _biometricPasswordKey = 'biometric_password';
   static const String _biometricUserTypeKey = 'biometric_user_type';
+  static const String _localeKey = 'app_locale';
 
   // Token Management
   static Future<void> saveToken(String token) async {
@@ -270,6 +271,30 @@ class StorageService {
       await _storage.delete(key: _biometricUserTypeKey);
     } catch (e) {
       print('Error clearing biometric data: $e');
+    }
+  }
+
+  // Locale Management
+  static Future<void> saveLocale(
+    String languageCode,
+    String countryCode,
+  ) async {
+    try {
+      await _storage.write(
+        key: _localeKey,
+        value: '${languageCode}_$countryCode',
+      );
+    } catch (e) {
+      print('Error saving locale: $e');
+    }
+  }
+
+  static Future<String?> getLocale() async {
+    try {
+      return await _storage.read(key: _localeKey);
+    } catch (e) {
+      print('Error reading locale: $e');
+      return null;
     }
   }
 }

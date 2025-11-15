@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'reports_controller.dart';
 import '../../core/theme/app_colors.dart';
 import '../../data/models/report_model.dart';
+import '../../core/values/app_strings.dart';
 
 class ReportsPage extends StatelessWidget {
   const ReportsPage({super.key});
@@ -13,24 +14,24 @@ class ReportsPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Reports'),
+        title: Text(SKeys.myReports.tr),
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: controller.loadReports,
-            tooltip: 'Refresh',
+            tooltip: SKeys.refresh.tr,
           ),
         ],
       ),
       body: Obx(() {
         if (controller.isLoading.value) {
-          return const Center(
+          return Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CircularProgressIndicator(),
                 SizedBox(height: 16),
-                Text('Loading reports...'),
+                Text(SKeys.loadingReports.tr),
               ],
             ),
           );
@@ -53,7 +54,7 @@ class ReportsPage extends StatelessWidget {
                 ElevatedButton.icon(
                   onPressed: controller.loadReports,
                   icon: const Icon(Icons.refresh),
-                  label: const Text('Retry'),
+                  label: Text(SKeys.retry.tr),
                 ),
               ],
             ),
@@ -72,7 +73,7 @@ class ReportsPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'No reports available',
+                  SKeys.noReports.tr,
                   style: TextStyle(fontSize: 16, color: Colors.grey[600]),
                 ),
               ],

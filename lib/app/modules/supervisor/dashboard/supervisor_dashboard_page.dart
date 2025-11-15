@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:badges/badges.dart' as badges;
 
 import '../../../core/theme/app_colors.dart';
+import '../../../core/values/app_strings.dart';
 import '../../../data/models/supervisor_dashboard_model.dart';
 import '../../../data/services/storage_service.dart';
 import '../../../routes/app_routes.dart';
@@ -370,11 +371,11 @@ class _SupervisorDashboardPageState extends State<SupervisorDashboardPage>
       context: context,
       builder: (BuildContext context) {
         return CustomDialog(
-          title: 'Logout',
-          content: 'Are you sure you want to logout?',
+          title: SKeys.logout.tr,
+          content: SKeys.logoutConfirm.tr,
           icon: Icons.logout_rounded,
           iconColor: Colors.red,
-          confirmText: 'Logout',
+          confirmText: SKeys.logout.tr,
           isDanger: true,
           onConfirm: () {
             Navigator.of(context).pop();

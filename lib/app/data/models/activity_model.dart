@@ -58,11 +58,11 @@ class ActivityItem {
       title: json['title'] ?? '',
       description: json['description'] ?? '',
       timestamp: DateTime.parse(json['timestamp']),
-      icon: IconData(
-        json['icon'] ?? 0xe3af, // Default icon code point for circle
+      icon: const IconData(
+        0xe3af, // Default icon code point for circle
         fontFamily: 'MaterialIcons',
       ),
-      color: Color(json['color'] ?? 0xFF2196F3), // Default blue color
+      color: const Color(0xFF2196F3), // Default blue color
       metadata: json['metadata'],
     );
   }

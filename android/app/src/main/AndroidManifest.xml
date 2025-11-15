@@ -14,20 +14,18 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" 
         android:maxSdkVersion="32" />
     
-    <!-- Android 13+ (API 33+) Granular Media Permissions -->
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <!-- Note: READ_MEDIA_IMAGES and READ_MEDIA_VIDEO removed - using Android Photo Picker instead -->
+    <!-- Android Photo Picker (API 33+) doesn't require these permissions -->
     
-    <!-- Permission for downloading files to public directories -->
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
-        tools:ignore="ScopedStorage" />
+    <!-- Note: MANAGE_EXTERNAL_STORAGE removed - using scoped storage via getExternalFilesDir -->
+    <!-- No special permissions needed for app-specific storage -->
     
     <!-- Biometric Authentication Permissions -->
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
     
     <application
-        android:label="multiline_app"
+        android:label="Multiline Driver"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:networkSecurityConfig="@xml/network_security_config"

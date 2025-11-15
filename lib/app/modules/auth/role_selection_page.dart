@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../routes/app_routes.dart';
 import '../../core/values/app_strings.dart';
+import '../../data/services/storage_service.dart';
 
 class RoleSelectionPage extends StatelessWidget {
   const RoleSelectionPage({super.key});
@@ -86,12 +87,18 @@ class RoleSelectionPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextButton(
-                    onPressed: () => Get.updateLocale(const Locale('en', 'US')),
+                    onPressed: () {
+                      Get.updateLocale(const Locale('en', 'US'));
+                      StorageService.saveLocale('en', 'US');
+                    },
                     child: const Text('EN'),
                   ),
                   const SizedBox(width: 8),
                   TextButton(
-                    onPressed: () => Get.updateLocale(const Locale('ms', 'MY')),
+                    onPressed: () {
+                      Get.updateLocale(const Locale('ms', 'MY'));
+                      StorageService.saveLocale('ms', 'MY');
+                    },
                     child: const Text('BM'),
                   ),
                 ],

@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:open_file/open_file.dart';
 import '../../data/models/report_model.dart';
@@ -131,183 +130,6 @@ class ReportsController extends GetxController {
     }
   }
 
-  /// Request storage permission with proper handling for Android 13+
-  Future<bool> _requestStoragePermission() async {
-    if (Platform.isAndroid) {
-      // For Android 13+ (SDK 33+), use manageExternalStorage
-      // For Android 10-12, use storage permission
-
-      // First check Android version to determine which permission to request
-      PermissionStatus status;
-
-      // Try manageExternalStorage first (for Android 11+)
-      try {
-        status = await Permission.manageExternalStorage.status;
-
-        if (status.isGranted) {
-          print('✅ MANAGE_EXTERNAL_STORAGE permission granted');
-          return true;
-        }
-
-        if (status.isDenied) {
-          print('🔐 Requesting MANAGE_EXTERNAL_STORAGE permission...');
-          status = await Permission.manageExternalStorage.request();
-
-          if (status.isGranted) {
-            print('✅ MANAGE_EXTERNAL_STORAGE permission granted after request');
-            return true;
-          }
-
-          if (status.isPermanentlyDenied) {
-            print('⛔ MANAGE_EXTERNAL_STORAGE permanently denied');
-            return await _showPermissionSettingsDialog();
-          }
-
-          // If denied but not permanently, try regular storage permission
-          if (!status.isGranted) {
-            print(
-              '⚠️ MANAGE_EXTERNAL_STORAGE denied, trying regular storage...',
-            );
-          }
-        }
-      } catch (e) {
-        print(
-          '⚠️ MANAGE_EXTERNAL_STORAGE not available, using storage permission: $e',
-        );
-      }
-
-      // Fallback to regular storage permission (for Android 10-12)
-      status = await Permission.storage.status;
-
-      if (status.isGranted) {
-        print('✅ Storage permission granted');
-        return true;
-      }
-
-      if (status.isDenied) {
-        print('🔐 Requesting storage permission...');
-        status = await Permission.storage.request();
-
-        if (status.isGranted) {
-          print('✅ Storage permission granted after request');
-          return true;
-        }
-
-        if (status.isPermanentlyDenied) {
-          print('⛔ Storage permission permanently denied');
-          return await _showPermissionSettingsDialog();
-        }
-
-        return status.isGranted;
-      }
-
-      // Try to request permission anyway
-      print('🔐 Requesting storage permission (fallback)...');
-      status = await Permission.storage.request();
-      return status.isGranted;
-    } else if (Platform.isIOS) {
-      // iOS doesn't need permission for app documents
-      return true;
-    }
-    return false;
-  }
-
-  /// Show dialog to open app settings for permission
-  Future<bool> _showPermissionSettingsDialog() async {
-    final shouldOpenSettings = await Get.dialog<bool>(
-      AlertDialog(
-        title: Row(
-          children: [
-            Icon(Icons.settings, color: Colors.orange.shade700, size: 28),
-            const SizedBox(width: 12),
-            const Text('Permission Required'),
-          ],
-        ),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              'Storage permission is required to download reports to your device.',
-              style: TextStyle(fontSize: 15),
-            ),
-            const SizedBox(height: 16),
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: Colors.orange.shade50,
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Colors.orange.shade200),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'How to enable:',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.orange.shade900,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  _buildSettingsStep('1', 'Tap "Open Settings" below'),
-                  const SizedBox(height: 4),
-                  _buildSettingsStep('2', 'Go to Permissions'),
-                  const SizedBox(height: 4),
-                  _buildSettingsStep(
-                    '3',
-                    'Enable "Files and Media" or "Storage"',
-                  ),
-                  const SizedBox(height: 4),
-                  _buildSettingsStep('4', 'Return to app and try again'),
-                ],
-              ),
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Get.back(result: false),
-            child: const Text('Cancel'),
-          ),
-          ElevatedButton.icon(
-            onPressed: () => Get.back(result: true),
-            icon: const Icon(Icons.settings, size: 18),
-            label: const Text('Open Settings'),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.orange.shade700,
-              foregroundColor: Colors.white,
-            ),
-          ),
-        ],
-      ),
-    );
-
-    if (shouldOpenSettings == true) {
-      print('📱 Opening app settings...');
-      await openAppSettings();
-      // Give user time to change settings, then check again
-      await Future.delayed(const Duration(seconds: 1));
-
-      // Check both permissions again
-      try {
-        final manageStatus = await Permission.manageExternalStorage.status;
-        if (manageStatus.isGranted) {
-          print('✅ MANAGE_EXTERNAL_STORAGE granted from settings');
-          return true;
-        }
-      } catch (e) {
-        print('⚠️ Could not check MANAGE_EXTERNAL_STORAGE: $e');
-      }
-
-      final storageStatus = await Permission.storage.status;
-      print('📋 Storage permission status after settings: $storageStatus');
-      return storageStatus.isGranted;
-    }
-
-    return false;
-  }
-
   /// Open downloaded file
   Future<void> openDownloadedFile(String fileName) async {
     try {
@@ -355,7 +177,7 @@ class ReportsController extends GetxController {
       print('❌ Error opening file: $e');
       Get.snackbar(
         'Error',
-        'Failed to open file. Please open it manually from Downloads/multiline folder.',
+        'Failed to open file. You can find it in: Files > Android > data > com.yourapp > files > multiline',
         snackPosition: SnackPosition.BOTTOM,
         duration: const Duration(seconds: 5),
       );
@@ -424,7 +246,7 @@ class ReportsController extends GetxController {
             ),
             const SizedBox(height: 12),
             const Text(
-              'Open your file manager and navigate to:\nDownload → multiline',
+              'Open your file manager and navigate to:\nAndroid → data → com.yourapp → files → multiline',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ],
@@ -433,39 +255,6 @@ class ReportsController extends GetxController {
           TextButton(onPressed: () => Get.back(), child: const Text('OK')),
         ],
       ),
-    );
-  }
-
-  // Helper widget for settings steps
-  Widget _buildSettingsStep(String number, String text) {
-    return Row(
-      children: [
-        Container(
-          width: 20,
-          height: 20,
-          decoration: BoxDecoration(
-            color: Colors.orange.shade700,
-            shape: BoxShape.circle,
-          ),
-          child: Center(
-            child: Text(
-              number,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 11,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
-        const SizedBox(width: 8),
-        Expanded(
-          child: Text(
-            text,
-            style: TextStyle(fontSize: 13, color: Colors.grey.shade700),
-          ),
-        ),
-      ],
     );
   }
 
@@ -479,35 +268,9 @@ class ReportsController extends GetxController {
 
       final report = reports[index];
 
-      // Request permission directly without explanation dialog
-      final hasPermission = await _requestStoragePermission();
-      if (!hasPermission) {
-        // Show a final message if permission still denied
-        Get.snackbar(
-          'Download Cancelled',
-          'Storage permission is required to download reports. You can enable it anytime from app settings.',
-          snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: Colors.grey.shade700,
-          colorText: Colors.white,
-          duration: const Duration(seconds: 4),
-          icon: const Icon(Icons.info_outline, color: Colors.white),
-          mainButton: TextButton(
-            onPressed: () {
-              Get.closeAllSnackbars();
-              openAppSettings();
-            },
-            child: const Text(
-              'Settings',
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        );
-        downloadingReportIndex.value = null;
-        return;
-      }
+      // No permission needed for app-specific external storage (Android 10+)
+      // Files are saved to: Android/data/com.yourapp/files/
+      print('📁 Using app-specific storage (no permissions required)');
 
       // Show starting download message
       Get.snackbar(
@@ -520,46 +283,20 @@ class ReportsController extends GetxController {
         icon: const Icon(Icons.downloading, color: Colors.white),
       );
 
-      // Get download directory with fallback options
+      // Get download directory - using app-specific external storage (no permissions needed)
       Directory? directory;
       String? pathDescription;
 
       if (Platform.isAndroid) {
-        // Try multiple directory options in order of preference
-        List<Directory?> possibleDirs = [
-          Directory('/storage/emulated/0/Download'), // Public Downloads
-          await getExternalStorageDirectory(), // App external storage
-          await getApplicationDocumentsDirectory(), // App documents (fallback)
-        ];
+        // Use getExternalStorageDirectory() - app-specific storage, no permissions required
+        // This is accessible via: Files app > Android > data > com.yourapp > files
+        directory = await getExternalStorageDirectory();
+        pathDescription = 'App Storage';
 
-        List<String> pathDescriptions = [
-          'Download',
-          'App Files',
-          'App Documents',
-        ];
-
-        for (int i = 0; i < possibleDirs.length; i++) {
-          final testDir = possibleDirs[i];
-          if (testDir != null) {
-            try {
-              // Test if we can create a directory here
-              final testPath = '${testDir.path}/multiline';
-              final testDirectory = Directory(testPath);
-
-              if (await testDirectory.exists() ||
-                  await testDirectory
-                      .create(recursive: true)
-                      .then((_) => true)
-                      .catchError((_) => false)) {
-                directory = testDir;
-                pathDescription = pathDescriptions[i];
-                break;
-              }
-            } catch (e) {
-              print('Failed to access directory ${testDir.path}: $e');
-              continue;
-            }
-          }
+        if (directory == null) {
+          // Fallback to app documents directory
+          directory = await getApplicationDocumentsDirectory();
+          pathDescription = 'App Documents';
         }
       } else if (Platform.isIOS) {
         directory = await getApplicationDocumentsDirectory();
@@ -567,7 +304,7 @@ class ReportsController extends GetxController {
       }
 
       if (directory == null) {
-        throw Exception('Could not find accessible storage location');
+        throw Exception('Could not access storage');
       }
 
       // Create multiline subfolder
