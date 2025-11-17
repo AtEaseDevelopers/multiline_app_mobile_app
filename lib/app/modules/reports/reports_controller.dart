@@ -188,7 +188,7 @@ class ReportsController extends GetxController {
   Future<void> _openFileWithIntent(String filePath) async {
     if (Platform.isAndroid) {
       try {
-        const platform = MethodChannel('com.example.multiline_app/file_opener');
+        const platform = MethodChannel('com.atease.multiline_app/file_opener');
         await platform.invokeMethod('openFile', {'path': filePath});
         print('✅ File opened via intent');
       } catch (e) {
